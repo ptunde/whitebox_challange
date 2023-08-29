@@ -16,6 +16,14 @@
 		643FAA392A9CFA1900786562 /* WhiteboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA382A9CFA1900786562 /* WhiteboxTests.swift */; };
 		643FAA432A9CFA1900786562 /* WhiteboxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA422A9CFA1900786562 /* WhiteboxUITests.swift */; };
 		643FAA452A9CFA1900786562 /* WhiteboxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA442A9CFA1900786562 /* WhiteboxUITestsLaunchTests.swift */; };
+		643FAA542A9D093F00786562 /* CryptoAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA532A9D093F00786562 /* CryptoAsset.swift */; };
+		643FAA562A9D095B00786562 /* CryptoListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA552A9D095B00786562 /* CryptoListItemView.swift */; };
+		643FAA592A9D09A700786562 /* LightGrayButtonSyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA582A9D09A700786562 /* LightGrayButtonSyle.swift */; };
+		643FAA5C2A9D0AA800786562 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA5B2A9D0AA800786562 /* View+Navigation.swift */; };
+		643FAA5E2A9D0AC000786562 /* Binding+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA5D2A9D0AC000786562 /* Binding+Optional.swift */; };
+		643FAA602A9D0B7D00786562 /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA5F2A9D0B7D00786562 /* CryptoDetailView.swift */; };
+		643FAA632A9D100300786562 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA622A9D100300786562 /* FavoriteButton.swift */; };
+		643FAA652A9D106500786562 /* ShapedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA642A9D106500786562 /* ShapedText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +56,14 @@
 		643FAA3E2A9CFA1900786562 /* WhiteboxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhiteboxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		643FAA422A9CFA1900786562 /* WhiteboxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboxUITests.swift; sourceTree = "<group>"; };
 		643FAA442A9CFA1900786562 /* WhiteboxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboxUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		643FAA532A9D093F00786562 /* CryptoAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAsset.swift; sourceTree = "<group>"; };
+		643FAA552A9D095B00786562 /* CryptoListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListItemView.swift; sourceTree = "<group>"; };
+		643FAA582A9D09A700786562 /* LightGrayButtonSyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightGrayButtonSyle.swift; sourceTree = "<group>"; };
+		643FAA5B2A9D0AA800786562 /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
+		643FAA5D2A9D0AC000786562 /* Binding+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Optional.swift"; sourceTree = "<group>"; };
+		643FAA5F2A9D0B7D00786562 /* CryptoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailView.swift; sourceTree = "<group>"; };
+		643FAA622A9D100300786562 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		643FAA642A9D106500786562 /* ShapedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapedText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +114,11 @@
 		643FAA212A9CFA1500786562 /* Whitebox */ = {
 			isa = PBXGroup;
 			children = (
+				643FAA5A2A9D0A9C00786562 /* Extensions */,
+				643FAA572A9D099C00786562 /* Utils */,
+				643FAA522A9D092D00786562 /* Model */,
+				643FAA512A9D00FE00786562 /* View */,
 				643FAA222A9CFA1500786562 /* WhiteboxApp.swift */,
-				643FAA242A9CFA1500786562 /* ContentView.swift */,
 				643FAA262A9CFA1900786562 /* Assets.xcassets */,
 				643FAA2B2A9CFA1900786562 /* Persistence.swift */,
 				643FAA2D2A9CFA1900786562 /* Whitebox.xcdatamodeld */,
@@ -131,6 +150,51 @@
 				643FAA442A9CFA1900786562 /* WhiteboxUITestsLaunchTests.swift */,
 			);
 			path = WhiteboxUITests;
+			sourceTree = "<group>";
+		};
+		643FAA512A9D00FE00786562 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				643FAA612A9D0FF800786562 /* Assets */,
+				643FAA242A9CFA1500786562 /* ContentView.swift */,
+				643FAA552A9D095B00786562 /* CryptoListItemView.swift */,
+				643FAA5F2A9D0B7D00786562 /* CryptoDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		643FAA522A9D092D00786562 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				643FAA532A9D093F00786562 /* CryptoAsset.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		643FAA572A9D099C00786562 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				643FAA582A9D09A700786562 /* LightGrayButtonSyle.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		643FAA5A2A9D0A9C00786562 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				643FAA5B2A9D0AA800786562 /* View+Navigation.swift */,
+				643FAA5D2A9D0AC000786562 /* Binding+Optional.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		643FAA612A9D0FF800786562 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				643FAA622A9D100300786562 /* FavoriteButton.swift */,
+				643FAA642A9D106500786562 /* ShapedText.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,9 +327,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				643FAA592A9D09A700786562 /* LightGrayButtonSyle.swift in Sources */,
+				643FAA652A9D106500786562 /* ShapedText.swift in Sources */,
+				643FAA562A9D095B00786562 /* CryptoListItemView.swift in Sources */,
+				643FAA602A9D0B7D00786562 /* CryptoDetailView.swift in Sources */,
 				643FAA2C2A9CFA1900786562 /* Persistence.swift in Sources */,
+				643FAA542A9D093F00786562 /* CryptoAsset.swift in Sources */,
 				643FAA252A9CFA1500786562 /* ContentView.swift in Sources */,
+				643FAA5E2A9D0AC000786562 /* Binding+Optional.swift in Sources */,
 				643FAA232A9CFA1500786562 /* WhiteboxApp.swift in Sources */,
+				643FAA5C2A9D0AA800786562 /* View+Navigation.swift in Sources */,
+				643FAA632A9D100300786562 /* FavoriteButton.swift in Sources */,
 				643FAA2F2A9CFA1900786562 /* Whitebox.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
