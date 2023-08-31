@@ -10,8 +10,8 @@ import Foundation
 
 
 struct CryptoAsset: Identifiable {
-    let id = UUID()
+    let id: String
     let name: String
-    let icon: String
+    let icon: String?
     let isFavorite: Bool
 }

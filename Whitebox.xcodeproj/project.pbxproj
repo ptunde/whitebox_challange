@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		641B71DB2A9F472900973F07 /* CryptoAssetIconDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641B71DA2A9F472900973F07 /* CryptoAssetIconDto.swift */; };
 		643FAA232A9CFA1500786562 /* WhiteboxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA222A9CFA1500786562 /* WhiteboxApp.swift */; };
 		643FAA252A9CFA1500786562 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA242A9CFA1500786562 /* ContentView.swift */; };
 		643FAA272A9CFA1900786562 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 643FAA262A9CFA1900786562 /* Assets.xcassets */; };
@@ -24,6 +25,25 @@
 		643FAA602A9D0B7D00786562 /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA5F2A9D0B7D00786562 /* CryptoDetailView.swift */; };
 		643FAA632A9D100300786562 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA622A9D100300786562 /* FavoriteButton.swift */; };
 		643FAA652A9D106500786562 /* ShapedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643FAA642A9D106500786562 /* ShapedText.swift */; };
+		647D1F332A9E323E001BC38D /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D1F322A9E323E001BC38D /* ContentViewModel.swift */; };
+		647D1F352A9E32EE001BC38D /* CryptoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D1F342A9E32EE001BC38D /* CryptoRepository.swift */; };
+		647D1F372A9E32FC001BC38D /* CryptoRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D1F362A9E32FC001BC38D /* CryptoRepositoryImpl.swift */; };
+		647D1F3C2A9F2CD8001BC38D /* CryptoAssetDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647D1F3B2A9F2CD8001BC38D /* CryptoAssetDto.swift */; };
+		6496FA8C2A9F9E3B009642B1 /* CryptoExchangeRateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496FA8B2A9F9E3B009642B1 /* CryptoExchangeRateDto.swift */; };
+		6496FA8E2A9F9E91009642B1 /* CryptoExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6496FA8D2A9F9E91009642B1 /* CryptoExchangeRate.swift */; };
+		64EFAE872AA082C8007A23B7 /* URLSession.DataTaskPublisher+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE862AA082C8007A23B7 /* URLSession.DataTaskPublisher+Validation.swift */; };
+		64EFAE892AA08AED007A23B7 /* Publisher+ErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE882AA08AED007A23B7 /* Publisher+ErrorMapping.swift */; };
+		64EFAE8B2AA08B3E007A23B7 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE8A2AA08B3E007A23B7 /* Errors.swift */; };
+		64EFAE8D2AA08BB8007A23B7 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE8C2AA08BB8007A23B7 /* HttpMethod.swift */; };
+		64EFAE8F2AA08D58007A23B7 /* CryptoRemoteDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE8E2AA08D58007A23B7 /* CryptoRemoteDatasource.swift */; };
+		64EFAE912AA08D64007A23B7 /* CryptoRemoteDatasourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE902AA08D64007A23B7 /* CryptoRemoteDatasourceImpl.swift */; };
+		64EFAE932AA08EEB007A23B7 /* CryptoCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE922AA08EEB007A23B7 /* CryptoCurrency.swift */; };
+		64EFAE952AA09642007A23B7 /* CryptoRemoteDatasourceConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE942AA09642007A23B7 /* CryptoRemoteDatasourceConfiguration.swift */; };
+		64EFAE972AA09671007A23B7 /* CryptoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE962AA09671007A23B7 /* CryptoDetailViewModel.swift */; };
+		64EFAE992AA096B3007A23B7 /* CryptoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE982AA096B3007A23B7 /* CryptoListView.swift */; };
+		64EFAE9E2AA09BB5007A23B7 /* CryptoDetailVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE9D2AA09BB5007A23B7 /* CryptoDetailVO.swift */; };
+		64EFAEA02AA0A196007A23B7 /* CryptoDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EFAE9F2AA0A196007A23B7 /* CryptoDetailContentView.swift */; };
+		64EFAEA32AA0CFBE007A23B7 /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = 64EFAEA22AA0CFBE007A23B7 /* NukeUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		641B71DA2A9F472900973F07 /* CryptoAssetIconDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAssetIconDto.swift; sourceTree = "<group>"; };
 		643FAA1F2A9CFA1500786562 /* Whitebox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whitebox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		643FAA222A9CFA1500786562 /* WhiteboxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteboxApp.swift; sourceTree = "<group>"; };
 		643FAA242A9CFA1500786562 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +85,24 @@
 		643FAA5F2A9D0B7D00786562 /* CryptoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailView.swift; sourceTree = "<group>"; };
 		643FAA622A9D100300786562 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		643FAA642A9D106500786562 /* ShapedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapedText.swift; sourceTree = "<group>"; };
+		647D1F322A9E323E001BC38D /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		647D1F342A9E32EE001BC38D /* CryptoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRepository.swift; sourceTree = "<group>"; };
+		647D1F362A9E32FC001BC38D /* CryptoRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRepositoryImpl.swift; sourceTree = "<group>"; };
+		647D1F3B2A9F2CD8001BC38D /* CryptoAssetDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAssetDto.swift; sourceTree = "<group>"; };
+		6496FA8B2A9F9E3B009642B1 /* CryptoExchangeRateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoExchangeRateDto.swift; sourceTree = "<group>"; };
+		6496FA8D2A9F9E91009642B1 /* CryptoExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoExchangeRate.swift; sourceTree = "<group>"; };
+		64EFAE862AA082C8007A23B7 /* URLSession.DataTaskPublisher+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession.DataTaskPublisher+Validation.swift"; sourceTree = "<group>"; };
+		64EFAE882AA08AED007A23B7 /* Publisher+ErrorMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+ErrorMapping.swift"; sourceTree = "<group>"; };
+		64EFAE8A2AA08B3E007A23B7 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		64EFAE8C2AA08BB8007A23B7 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		64EFAE8E2AA08D58007A23B7 /* CryptoRemoteDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRemoteDatasource.swift; sourceTree = "<group>"; };
+		64EFAE902AA08D64007A23B7 /* CryptoRemoteDatasourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRemoteDatasourceImpl.swift; sourceTree = "<group>"; };
+		64EFAE922AA08EEB007A23B7 /* CryptoCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrency.swift; sourceTree = "<group>"; };
+		64EFAE942AA09642007A23B7 /* CryptoRemoteDatasourceConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRemoteDatasourceConfiguration.swift; sourceTree = "<group>"; };
+		64EFAE962AA09671007A23B7 /* CryptoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewModel.swift; sourceTree = "<group>"; };
+		64EFAE982AA096B3007A23B7 /* CryptoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListView.swift; sourceTree = "<group>"; };
+		64EFAE9D2AA09BB5007A23B7 /* CryptoDetailVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailVO.swift; sourceTree = "<group>"; };
+		64EFAE9F2AA0A196007A23B7 /* CryptoDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EFAEA32AA0CFBE007A23B7 /* NukeUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,15 +154,12 @@
 		643FAA212A9CFA1500786562 /* Whitebox */ = {
 			isa = PBXGroup;
 			children = (
+				647D1F2E2A9E31FF001BC38D /* Datastore */,
 				643FAA5A2A9D0A9C00786562 /* Extensions */,
-				643FAA572A9D099C00786562 /* Utils */,
 				643FAA522A9D092D00786562 /* Model */,
+				643FAA572A9D099C00786562 /* Utils */,
 				643FAA512A9D00FE00786562 /* View */,
 				643FAA222A9CFA1500786562 /* WhiteboxApp.swift */,
-				643FAA262A9CFA1900786562 /* Assets.xcassets */,
-				643FAA2B2A9CFA1900786562 /* Persistence.swift */,
-				643FAA2D2A9CFA1900786562 /* Whitebox.xcdatamodeld */,
-				643FAA282A9CFA1900786562 /* Preview Content */,
 			);
 			path = Whitebox;
 			sourceTree = "<group>";
@@ -157,8 +194,9 @@
 			children = (
 				643FAA612A9D0FF800786562 /* Assets */,
 				643FAA242A9CFA1500786562 /* ContentView.swift */,
-				643FAA552A9D095B00786562 /* CryptoListItemView.swift */,
-				643FAA5F2A9D0B7D00786562 /* CryptoDetailView.swift */,
+				647D1F322A9E323E001BC38D /* ContentViewModel.swift */,
+				64EFAE9A2AA09B8A007A23B7 /* Detail */,
+				64EFAE9B2AA09B95007A23B7 /* List */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				643FAA532A9D093F00786562 /* CryptoAsset.swift */,
+				64EFAE922AA08EEB007A23B7 /* CryptoCurrency.swift */,
+				6496FA8D2A9F9E91009642B1 /* CryptoExchangeRate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,7 +214,10 @@
 		643FAA572A9D099C00786562 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				643FAA282A9CFA1900786562 /* Preview Content */,
+				643FAA262A9CFA1900786562 /* Assets.xcassets */,
 				643FAA582A9D09A700786562 /* LightGrayButtonSyle.swift */,
+				64EFAE8A2AA08B3E007A23B7 /* Errors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -184,6 +227,8 @@
 			children = (
 				643FAA5B2A9D0AA800786562 /* View+Navigation.swift */,
 				643FAA5D2A9D0AC000786562 /* Binding+Optional.swift */,
+				64EFAE862AA082C8007A23B7 /* URLSession.DataTaskPublisher+Validation.swift */,
+				64EFAE882AA08AED007A23B7 /* Publisher+ErrorMapping.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,6 +240,84 @@
 				643FAA642A9D106500786562 /* ShapedText.swift */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		647D1F2E2A9E31FF001BC38D /* Datastore */ = {
+			isa = PBXGroup;
+			children = (
+				647D1F342A9E32EE001BC38D /* CryptoRepository.swift */,
+				647D1F362A9E32FC001BC38D /* CryptoRepositoryImpl.swift */,
+				647D1F302A9E320D001BC38D /* Local */,
+				647D1F2F2A9E3207001BC38D /* Remote */,
+			);
+			path = Datastore;
+			sourceTree = "<group>";
+		};
+		647D1F2F2A9E3207001BC38D /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				64EFAE8E2AA08D58007A23B7 /* CryptoRemoteDatasource.swift */,
+				64EFAE942AA09642007A23B7 /* CryptoRemoteDatasourceConfiguration.swift */,
+				64EFAE902AA08D64007A23B7 /* CryptoRemoteDatasourceImpl.swift */,
+				647D1F3A2A9F2B97001BC38D /* Dto */,
+				64EFAE8C2AA08BB8007A23B7 /* HttpMethod.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		647D1F302A9E320D001BC38D /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				647D1F312A9E3214001BC38D /* Core Data */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		647D1F312A9E3214001BC38D /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				643FAA2D2A9CFA1900786562 /* Whitebox.xcdatamodeld */,
+				643FAA2B2A9CFA1900786562 /* Persistence.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		647D1F3A2A9F2B97001BC38D /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				647D1F3B2A9F2CD8001BC38D /* CryptoAssetDto.swift */,
+				641B71DA2A9F472900973F07 /* CryptoAssetIconDto.swift */,
+				6496FA8B2A9F9E3B009642B1 /* CryptoExchangeRateDto.swift */,
+			);
+			path = Dto;
+			sourceTree = "<group>";
+		};
+		64EFAE9A2AA09B8A007A23B7 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				64EFAE9C2AA09BA5007A23B7 /* Model */,
+				643FAA5F2A9D0B7D00786562 /* CryptoDetailView.swift */,
+				64EFAE962AA09671007A23B7 /* CryptoDetailViewModel.swift */,
+				64EFAE9F2AA0A196007A23B7 /* CryptoDetailContentView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		64EFAE9B2AA09B95007A23B7 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				643FAA552A9D095B00786562 /* CryptoListItemView.swift */,
+				64EFAE982AA096B3007A23B7 /* CryptoListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		64EFAE9C2AA09BA5007A23B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64EFAE9D2AA09BB5007A23B7 /* CryptoDetailVO.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +336,9 @@
 			dependencies = (
 			);
 			name = Whitebox;
+			packageProductDependencies = (
+				64EFAEA22AA0CFBE007A23B7 /* NukeUI */,
+			);
 			productName = Whitebox;
 			productReference = 643FAA1F2A9CFA1500786562 /* Whitebox.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +411,9 @@
 				Base,
 			);
 			mainGroup = 643FAA162A9CFA1500786562;
+			packageReferences = (
+				64EFAEA12AA0CFBE007A23B7 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 643FAA202A9CFA1500786562 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,16 +456,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				647D1F3C2A9F2CD8001BC38D /* CryptoAssetDto.swift in Sources */,
 				643FAA592A9D09A700786562 /* LightGrayButtonSyle.swift in Sources */,
+				64EFAE9E2AA09BB5007A23B7 /* CryptoDetailVO.swift in Sources */,
+				64EFAE952AA09642007A23B7 /* CryptoRemoteDatasourceConfiguration.swift in Sources */,
+				64EFAE932AA08EEB007A23B7 /* CryptoCurrency.swift in Sources */,
+				647D1F372A9E32FC001BC38D /* CryptoRepositoryImpl.swift in Sources */,
+				64EFAE992AA096B3007A23B7 /* CryptoListView.swift in Sources */,
+				64EFAE8B2AA08B3E007A23B7 /* Errors.swift in Sources */,
+				647D1F332A9E323E001BC38D /* ContentViewModel.swift in Sources */,
+				6496FA8C2A9F9E3B009642B1 /* CryptoExchangeRateDto.swift in Sources */,
 				643FAA652A9D106500786562 /* ShapedText.swift in Sources */,
+				6496FA8E2A9F9E91009642B1 /* CryptoExchangeRate.swift in Sources */,
+				64EFAEA02AA0A196007A23B7 /* CryptoDetailContentView.swift in Sources */,
+				64EFAE972AA09671007A23B7 /* CryptoDetailViewModel.swift in Sources */,
 				643FAA562A9D095B00786562 /* CryptoListItemView.swift in Sources */,
 				643FAA602A9D0B7D00786562 /* CryptoDetailView.swift in Sources */,
+				641B71DB2A9F472900973F07 /* CryptoAssetIconDto.swift in Sources */,
 				643FAA2C2A9CFA1900786562 /* Persistence.swift in Sources */,
 				643FAA542A9D093F00786562 /* CryptoAsset.swift in Sources */,
+				64EFAE912AA08D64007A23B7 /* CryptoRemoteDatasourceImpl.swift in Sources */,
 				643FAA252A9CFA1500786562 /* ContentView.swift in Sources */,
+				647D1F352A9E32EE001BC38D /* CryptoRepository.swift in Sources */,
 				643FAA5E2A9D0AC000786562 /* Binding+Optional.swift in Sources */,
+				64EFAE892AA08AED007A23B7 /* Publisher+ErrorMapping.swift in Sources */,
 				643FAA232A9CFA1500786562 /* WhiteboxApp.swift in Sources */,
+				64EFAE872AA082C8007A23B7 /* URLSession.DataTaskPublisher+Validation.swift in Sources */,
+				64EFAE8F2AA08D58007A23B7 /* CryptoRemoteDatasource.swift in Sources */,
 				643FAA5C2A9D0AA800786562 /* View+Navigation.swift in Sources */,
+				64EFAE8D2AA08BB8007A23B7 /* HttpMethod.swift in Sources */,
 				643FAA632A9D100300786562 /* FavoriteButton.swift in Sources */,
 				643FAA2F2A9CFA1900786562 /* Whitebox.xcdatamodeld in Sources */,
 			);
@@ -496,7 +644,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Whitebox/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Whitebox/Utils/Preview Content\"";
 				DEVELOPMENT_TEAM = 5W989PLUXN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -525,7 +673,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Whitebox/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Whitebox/Utils/Preview Content\"";
 				DEVELOPMENT_TEAM = 5W989PLUXN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -663,6 +811,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		64EFAEA12AA0CFBE007A23B7 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.1.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		64EFAEA22AA0CFBE007A23B7 /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64EFAEA12AA0CFBE007A23B7 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		643FAA2D2A9CFA1900786562 /* Whitebox.xcdatamodeld */ = {
