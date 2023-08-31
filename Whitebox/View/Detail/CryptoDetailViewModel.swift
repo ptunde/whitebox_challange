@@ -36,7 +36,8 @@ class CryptoDetailViewModel: ObservableObject {
     
     // MARK: - init
     init(asset: CryptoAsset,
-         repository: CryptoRepository = CryptoRepositoryImpl(remoteDatasource: CryptoRemoteDatasourceImpl(configuration: CryptoRemoteDatasourceConfiguration())),
+         repository: CryptoRepository = CryptoRepositoryImpl(remoteDatasource: CryptoRemoteDatasourceImpl(configuration: CryptoRemoteDatasourceConfiguration()),
+                                                             localDatasource: CryptoLocalDatasourceImpl()),
          workScheduler: DispatchQueue = DispatchQueue.global(),
          mainScheduler: DispatchQueue = DispatchQueue.main) {
         

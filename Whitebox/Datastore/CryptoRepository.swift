@@ -13,4 +13,5 @@ import Combine
 protocol CryptoRepository {
     func getAssetList() -> AnyPublisher<[CryptoAsset], Error>
     func getAssetExchangeRate(id: String, inCurrency: CryptoCurrency) -> AnyPublisher<CryptoExchangeRate, Error>
+    func updateAsset(asset: CryptoAsset) -> AnyPublisher<CryptoAsset, Error>
 }

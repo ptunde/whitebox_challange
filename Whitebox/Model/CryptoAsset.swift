@@ -13,5 +13,10 @@ struct CryptoAsset: Identifiable {
     let id: String
     let name: String
     let icon: String?
-    let isFavorite: Bool
+    var isFavorite: Bool
+    
+    
+    func copy() -> CryptoAsset {
+        CryptoAsset(id: self.id, name: self.name, icon: self.icon, isFavorite: self.isFavorite)
+    }
 }

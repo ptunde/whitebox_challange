@@ -12,33 +12,19 @@ import SwiftUI
 struct CryptoListView: View {
     
     let items: [CryptoAsset]
-    
-    @State private var isFavoritesOn = false
-    @State private var searchText = ""
-    @State private var selectedItem: CryptoAsset?
+    let onTapIsFavorite: (CryptoAsset) -> Void
+    let didSelectItem: (CryptoAsset) -> Void
     
     
     
     // MARK: - body
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    CryptoListItemView(item: item,
-                             toggleFavorite: {},
-                             onSelect: { selectedItem = item })
-                }
+        List {
+            ForEach(items) { item in
+                CryptoListItemView(item: item,
+                                   toggleFavorite: { onTapIsFavorite(item) },
+                                   onSelect: { didSelectItem(item) })
             }
-            .listStyle(.insetGrouped)
-            .searchable(text: $searchText, prompt: "Search by asset id's")
-            .navigationTitle("Crypto list")
-            .toolbar {
-                ToolbarItem {
-                    FavoriteButton(isFavorite: isFavoritesOn,
-                                   toggleFavorite: { isFavoritesOn = !isFavoritesOn })
-                }
-            }
-            .navigate(when: $selectedItem) { CryptoDetailView(asset: $0) }
         }
     }
 }
@@ -56,6 +42,8 @@ struct CryptoListView_Previews: PreviewProvider {
                                             isFavorite: false)]
     
     static var previews: some View {
-        CryptoListView(items: items)
+        CryptoListView(items: items,
+                       onTapIsFavorite: { _ in },
+                       didSelectItem: { _ in })
     }
 }

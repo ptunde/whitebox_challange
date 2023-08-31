@@ -29,7 +29,10 @@ struct CryptoRemoteDatasourceImpl: CryptoRemoteDatasource {
     
     // MARK: - impl
     func getAssetList() -> AnyPublisher<[CryptoAsset], Error> {
-        Publishers.Zip(getList(), getIcons())
+        /// even if the second publisher fails we want the list of crypto assets
+        Publishers.Zip(getList(),
+                       getIcons().replaceError(with: [CryptoAssetIconDto]()).setFailureType(to: Error.self).eraseToAnyPublisher()
+        )
             .tryMap { (list, icons) in
                 list.map { item in
                     let icon = icons.first { item.id == $0.id }
@@ -48,7 +51,7 @@ struct CryptoRemoteDatasourceImpl: CryptoRemoteDatasource {
             .map { $0.data }
             .decode(type: CryptoExchangeRateDto.self, decoder: JSONDecoder())
             .tryMap { CryptoExchangeRate(id: $0.id, rate: $0.rate) }
-            .eraseToAnyPublisher()
+            .mapError()
     }
     
     

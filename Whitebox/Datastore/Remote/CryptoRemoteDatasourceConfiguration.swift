@@ -12,7 +12,7 @@ import Foundation
 // MARK: - remote datasource configurations
 struct CryptoRemoteDatasourceConfiguration {
     let baseUrl = "https://rest.coinapi.io/v1"
-    let apiKey = "F7EB91FF-71B0-4336-989A-70870EFFDD7D" // api keys normally should be stored at secure location
+    let apiKey = "1267A8FF-38E4-46B6-B10C-EAEBF8E6458F" // api keys normally should be stored at secure location
     let headerAPIKey = "X-CoinAPI-Key"
      
     //let tunde3  = "1267A8FF-38E4-46B6-B10C-EAEBF8E6458F"

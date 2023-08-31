@@ -11,6 +11,7 @@ import Foundation
 
 enum CustomErrors: Error {
     case api(error: APIErrors)
+    case storage(StorageError)
     case networkOffline
 }
 
@@ -18,4 +19,9 @@ enum APIErrors: Error {
     case assetNotFound
     case decoding
     case encoding
+}
+
+
+enum StorageError: Error {
+    case itemNotFound
 }
