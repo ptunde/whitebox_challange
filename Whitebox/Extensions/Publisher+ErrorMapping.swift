@@ -15,12 +15,12 @@ extension Publisher {
     func mapError() -> AnyPublisher<Output, Error> {
         self.mapError { error in
             if (error as NSError).code == -1009 {
-                return CustomErrors.networkOffline
+                return CustomError.networkOffline
             }
             
             switch error {
-            case is Swift.DecodingError: return CustomErrors.api(error: .decoding)
-            case is Swift.EncodingError: return CustomErrors.api(error: .encoding)
+            case is Swift.DecodingError: return CustomError.api(error: .decoding)
+            case is Swift.EncodingError: return CustomError.api(error: .encoding)
             default: return error
             }
         }

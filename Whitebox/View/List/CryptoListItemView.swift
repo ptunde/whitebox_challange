@@ -21,16 +21,17 @@ struct CryptoListItemView: View {
     
     
     // MARK: - constans
-    let imageSize = 32.0
-
+    let iconSize = 32.0
+    let iconPlaceholderSize = 26.0
+    
     
     
     // MARK: - body
     var body: some View {
+        
         ZStack(alignment: .trailing) {
-            Button {
-                onSelect()
-            } label: {
+            Button(action: onSelect,
+                   label: {
                 HStack {
                     if let icon = item.icon {
                         LazyImage(url: URL(string: icon)) { state in
@@ -46,16 +47,25 @@ struct CryptoListItemView: View {
                         errorImage
                     }
                     
-                    Text(item.name).foregroundColor(.gray)
+                    VStack(alignment: .leading) {
+                        Text(item.name).font(.headline)
+                        Text(item.id).font(.footnote)
+                    }
+                    .foregroundColor(.gray)
+                    .padding(.leading)
                     
                     Spacer()
                 }
-            }
+            })
             .buttonStyle(.borderless)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding(.leading)
+            .padding(.vertical)
             
             FavoriteButton(isFavorite: item.isFavorite,
                            toggleFavorite: toggleFavorite)
         }
+        
     }
     
     
@@ -64,7 +74,8 @@ struct CryptoListItemView: View {
     var errorImage: some View {
         Image(systemName: "exclamationmark.triangle")
             .resizable()
-            .frame(width: imageSize, height: imageSize)
+            .frame(width: iconPlaceholderSize, height: iconPlaceholderSize)
+            .frame(width: iconSize, height: iconSize, alignment: .center)
             .foregroundColor(.red)
     }
 }

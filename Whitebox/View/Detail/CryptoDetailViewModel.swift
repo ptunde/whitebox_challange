@@ -63,10 +63,9 @@ class CryptoDetailViewModel: ObservableObject {
                     self?.updateState(.error("Unable to load data. Please try again later"))
                 }
             } receiveValue: { [weak self] value in
-                let data = CryptoDetailVO(name: asset.name,
-                                          detail: "Detail of \(asset.name)",
-                                          rate: "Exchange rate: \(String(format: "%.1f", value.rate)) euro")
-                self?.updateState(.loaded(data))
+                guard let weakself = self else { return }
+                let data = weakself.getValueObject(from: asset, rate: value)
+                weakself.updateState(.loaded(data))
             }
             .store(in: &cancellables)
     }
@@ -75,5 +74,19 @@ class CryptoDetailViewModel: ObservableObject {
     
     private func updateState(_ state: State) {
         withAnimation { self.state = state }
+    }
+    
+    
+    
+    private func getValueObject(from asset: CryptoAsset, rate: CryptoExchangeRate) -> CryptoDetailVO {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = .current
+        
+        let rate = formatter.string(from: rate.rate as NSNumber) ?? "\(rate.rate)"
+        
+        return CryptoDetailVO(name: asset.name,
+                              detail: "Name: \(asset.name)\nCode: \(asset.id)",
+                              rate: "Exchange rate\n\(rate) €")
     }
 }

@@ -9,13 +9,13 @@ import Foundation
 
 
 
-enum CustomErrors: Error {
-    case api(error: APIErrors)
+enum CustomError: Error {
+    case api(error: APIError)
     case storage(StorageError)
     case networkOffline
 }
 
-enum APIErrors: Error {
+enum APIError: Error {
     case assetNotFound
     case decoding
     case encoding

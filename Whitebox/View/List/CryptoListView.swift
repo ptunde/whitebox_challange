@@ -24,6 +24,7 @@ struct CryptoListView: View {
                 CryptoListItemView(item: item,
                                    toggleFavorite: { onTapIsFavorite(item) },
                                    onSelect: { didSelectItem(item) })
+                .listRowInsets(EdgeInsets())
             }
         }
     }

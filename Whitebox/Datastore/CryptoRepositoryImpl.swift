@@ -53,7 +53,7 @@ struct CryptoRepositoryImpl: CryptoRepository {
                     .eraseToAnyPublisher()
             }
             .catch { error in
-                switch error as? CustomErrors {
+                switch error as? CustomError {
                 case .networkOffline:
                     return localDatasource
                         .getAssetList()
@@ -79,7 +79,7 @@ struct CryptoRepositoryImpl: CryptoRepository {
             .getAssetExchangeRate(id: id, inCurrency: inCurrency)
             .flatMap { localDatasource.saveAssetExchangeRate(rate: $0) }
             .catch { error in
-                if let myError = error as? CustomErrors {
+                if let myError = error as? CustomError {
                     switch myError {
                     case .networkOffline: return localDatasource.getAssetExchangeRate(id: id)
                     default: return .fail(with: error)
