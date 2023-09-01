@@ -9,7 +9,7 @@ import Foundation
 
 
 
-struct CryptoDetailVO {
+struct CryptoDetailVO: Equatable {
     let name: String
     let detail: String
     let rate: String

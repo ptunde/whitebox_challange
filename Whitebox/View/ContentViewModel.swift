@@ -53,12 +53,8 @@ class ContentViewModel: ObservableObject {
     
     func onTapIsFavorite(asset: CryptoAsset) {
         if case .loaded(_, let isOfflineData) = state {
-            
-            var item = asset.copy()
-            item.isFavorite = !asset.isFavorite
-            
             repository
-                .updateAsset(asset: item)
+                .updateAsset(asset: asset.copy(isFavorite: !asset.isFavorite))
                 .subscribe(on: workScheduler)
                 .receive(on: mainScheduler)
                 .sink { compl in
@@ -121,13 +117,18 @@ class ContentViewModel: ObservableObject {
             $searchQuerry
                 .dropFirst(1)
                 .debounce(for: .seconds(0.5), scheduler: mainScheduler)
+                .removeDuplicates()
                 .subscribe(on: workScheduler)
                 .receive(on: mainScheduler)
                 .sink { value in
-                    switch value {
-                    case "": self.updateState(.loaded(list: self.allData, isOfflineData: isOfflineData))
-                    default: self.updateState(.loaded(list: self.allData.filter { $0.id.lowercased().contains(value.lowercased()) },
-                                                      isOfflineData: isOfflineData))
+                    switch value.isEmpty {
+                    case true: self.updateState(.loaded(list: self.allData, isOfflineData: isOfflineData))
+                    case false:
+                        let filtered = self.allData.filter {
+                            $0.id.lowercased().contains(value.lowercased()) || $0.name.lowercased().contains(value.lowercased())
+                        }
+                        
+                        self.updateState(.loaded(list: filtered, isOfflineData: isOfflineData))
                     }
                 }
                 .store(in: &cancellables)

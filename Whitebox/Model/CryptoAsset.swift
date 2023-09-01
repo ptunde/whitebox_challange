@@ -16,7 +16,8 @@ struct CryptoAsset: Identifiable {
     var isFavorite: Bool
     
     
-    func copy() -> CryptoAsset {
-        CryptoAsset(id: self.id, name: self.name, icon: self.icon, isFavorite: self.isFavorite)
+    
+    func copy(isFavorite: Bool) -> CryptoAsset {
+        CryptoAsset(id: self.id, name: self.name, icon: self.icon, isFavorite: isFavorite)
     }
 }

@@ -33,14 +33,9 @@ struct CryptoRepositoryImpl: CryptoRepository {
         
         Publishers.Zip(remoteDatasource.getAssetList(), localDatasource.getFavoritesAssets())
             .map { (all, favorites) in
-                var allAssets = all
-                for favorite in favorites {
-                    if let index = allAssets.firstIndex(where: { $0.id == favorite.id }) {
-                        allAssets[index].isFavorite = true
-                    }
+                all.map { item in
+                    item.copy(isFavorite: favorites.contains(where: { item.id == $0.id }))
                 }
-                
-                return allAssets
             }
             .flatMap { list in
                 localDatasource

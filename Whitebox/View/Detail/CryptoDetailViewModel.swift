@@ -28,7 +28,7 @@ class CryptoDetailViewModel: ObservableObject {
     
     
     // MARK: - helper
-    enum State {
+    enum State: Equatable {
         case loading, loaded(CryptoDetailVO), error(String)
     }
     
