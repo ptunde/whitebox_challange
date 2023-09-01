@@ -28,7 +28,7 @@ struct CryptoDetailView: View {
             .navigationTitle(asset.name)
             
         case .error:
-            Text("Failed to load data")
+            Text("unable_to_load_data".localized())
         }
     }
     

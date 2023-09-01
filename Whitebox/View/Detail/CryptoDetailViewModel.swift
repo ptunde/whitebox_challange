@@ -60,7 +60,7 @@ class CryptoDetailViewModel: ObservableObject {
             .receive(on: mainScheduler)
             .sink { [weak self] compl in
                 if case .failure = compl {
-                    self?.updateState(.error("Unable to load data. Please try again later"))
+                    self?.updateState(.error("unable_to_load_data".localized()))
                 }
             } receiveValue: { [weak self] value in
                 guard let weakself = self else { return }
@@ -84,9 +84,9 @@ class CryptoDetailViewModel: ObservableObject {
         formatter.locale = .current
         
         let rate = formatter.string(from: rate.rate as NSNumber) ?? "\(rate.rate)"
+        let detailString = "name_code".localized(with: [asset.name, asset.id])
+        let rateString = "exchange_rate".localized(with: [rate])
         
-        return CryptoDetailVO(name: asset.name,
-                              detail: "Name: \(asset.name)\nCode: \(asset.id)",
-                              rate: "Exchange rate\n\(rate) €")
+        return CryptoDetailVO(name: asset.name, detail: detailString, rate: rateString)
     }
 }

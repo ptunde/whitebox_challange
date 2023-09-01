@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Whitebox
+
+  Created by Tünde Péter on 2023. 09. 01..
+  
+*/
+
+"button_retry" = "Retry";
+"error_no_internet" = "Internet connection is down, displaying offline data.";
+"search_title" = "Search by asset id's";
+"list_title" = "Crypto list";
+"unable_to_load_data" = "Unable to load data. Please try again later";
+"name_code" = "Name: %@\nCode_de: %@";
+"exchange_rate" = "Exchange rate\n%@ €";

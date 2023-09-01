@@ -25,7 +25,7 @@ struct CustomErrorView: View {
             Text(message)
             
             Button(action: onRetry, label: {
-                Text("Retry")
+                Text("button_retry".localized())
                     .padding(6.0)
             })
             .buttonStyle(.bordered)
@@ -39,7 +39,7 @@ struct CustomErrorView: View {
 struct CustomErrorView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CustomErrorView(message: "Unable to load data. Please try again later",
+        CustomErrorView(message: "unable_to_load_data".localized(),
                         onRetry: {})
     }
 }

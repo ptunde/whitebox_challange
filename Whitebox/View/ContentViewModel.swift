@@ -105,7 +105,7 @@ class ContentViewModel: ObservableObject {
             .receive(on: mainScheduler)
             .sink { [weak self] compl in
                 if case .failure = compl {
-                    self?.updateState(.error("Unable to load data. Please try again later"))
+                    self?.updateState(.error("unable_to_load_data".localized()))
                 }
             } receiveValue: { [weak self] value in
                 self?.allData = value.list

@@ -28,7 +28,7 @@ struct ContentView: View {
             NavigationView {
                 VStack(spacing: 0.0) {
                     if isOfflineData {
-                        Text("Internet connection is down, displaying offline data.")
+                        Text("error_no_internet".localized())
                             .foregroundColor(.red)
                             .padding()
                     }
@@ -37,10 +37,10 @@ struct ContentView: View {
                                    onTapIsFavorite: viewModel.onTapIsFavorite(asset:),
                                    didSelectItem: { selectedItem = $0 } )
                     .listStyle(.insetGrouped)
-                    .searchable(text: $viewModel.searchQuerry, prompt: "Search by asset id's")
+                    .searchable(text: $viewModel.searchQuerry, prompt: "search_title".localized())
                     
                 }
-                .navigationTitle("Crypto list")
+                .navigationTitle("list_title".localized())
                 .toolbar {
                     ToolbarItem {
                         FavoriteButton(isFavorite: viewModel.isDisplayingOnlyFavorites,
