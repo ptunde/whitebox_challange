@@ -11,7 +11,7 @@ import Combine
 
 // MARK: - protocol
 protocol CryptoRepository {
-    func getAssetList() -> AnyPublisher<[CryptoAsset], Error>
+    func getAssetList() -> AnyPublisher<(list: [CryptoAsset], isOfflineData: Bool), Error>
     func getAssetExchangeRate(id: String, inCurrency: CryptoCurrency) -> AnyPublisher<CryptoExchangeRate, Error>
     func updateAsset(asset: CryptoAsset) -> AnyPublisher<CryptoAsset, Error>
 }

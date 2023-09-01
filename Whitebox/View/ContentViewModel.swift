@@ -31,7 +31,7 @@ class ContentViewModel: ObservableObject {
     
     // MARK: - helper
     enum State {
-        case loading, loaded([CryptoAsset]), error(String)
+        case loading, loaded(list: [CryptoAsset], isOfflineData: Bool), error(String)
     }
     
     
@@ -52,37 +52,42 @@ class ContentViewModel: ObservableObject {
     
     
     func onTapIsFavorite(asset: CryptoAsset) {
-        
-        var item = asset.copy()
-        item.isFavorite = !asset.isFavorite
-        
-        repository
-            .updateAsset(asset: item)
-            .subscribe(on: workScheduler)
-            .receive(on: mainScheduler)
-            .sink { compl in
-                // no-op
-            } receiveValue: { [weak self] value in
-                guard let weakself = self else { return }
-                if let index = weakself.allData.firstIndex(where: { $0.id == asset.id }) {
-                    weakself.allData[index].isFavorite = value.isFavorite
+        if case .loaded(_, let isOfflineData) = state {
+            
+            var item = asset.copy()
+            item.isFavorite = !asset.isFavorite
+            
+            repository
+                .updateAsset(asset: item)
+                .subscribe(on: workScheduler)
+                .receive(on: mainScheduler)
+                .sink { compl in
+                    // no-op
+                } receiveValue: { [weak self] value in
+                    guard let weakself = self else { return }
+                    if let index = weakself.allData.firstIndex(where: { $0.id == asset.id }) {
+                        weakself.allData[index].isFavorite = value.isFavorite
+                    }
+                    weakself.updateState(.loaded(list: weakself.allData, isOfflineData: isOfflineData))
                 }
-                weakself.updateState(.loaded(weakself.allData))
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        }
     }
     
     
     
     func onTapToggleFavorites() {
-        isDisplayingOnlyFavorites = !isDisplayingOnlyFavorites
-        
-        switch isDisplayingOnlyFavorites {
-        case true:
-            let custom = allData.filter { $0.isFavorite == true }
-            updateState(.loaded(custom))
-        case false:
-            updateState(.loaded(allData))
+        if case .loaded(_, let isOfflineData) = state {
+            
+            isDisplayingOnlyFavorites = !isDisplayingOnlyFavorites
+            
+            switch isDisplayingOnlyFavorites {
+            case true:
+                let custom = allData.filter { $0.isFavorite == true }
+                updateState(.loaded(list: custom, isOfflineData: isOfflineData))
+            case false:
+                updateState(.loaded(list: allData, isOfflineData: isOfflineData))
+            }
         }
     }
     
@@ -101,8 +106,8 @@ class ContentViewModel: ObservableObject {
                     self?.updateState(.error("Unable to load data. Please try again later"))
                 }
             } receiveValue: { [weak self] value in
-                self?.allData = value
-                self?.updateState(.loaded(value))
+                self?.allData = value.list
+                self?.updateState(.loaded(list: value.list, isOfflineData: value.isOfflineData))
                 self?.subscribeToSearchText()
             }
             .store(in: &cancellables)
@@ -111,7 +116,7 @@ class ContentViewModel: ObservableObject {
     
     
     private func subscribeToSearchText() {
-        if case .loaded = state {
+        if case .loaded(_, let isOfflineData) = state {
             
             $searchQuerry
                 .dropFirst(1)
@@ -120,8 +125,9 @@ class ContentViewModel: ObservableObject {
                 .receive(on: mainScheduler)
                 .sink { value in
                     switch value {
-                    case "": self.updateState(.loaded(self.allData))
-                    default: self.updateState(.loaded(self.allData.filter { $0.id.lowercased().contains(value.lowercased()) }))
+                    case "": self.updateState(.loaded(list: self.allData, isOfflineData: isOfflineData))
+                    default: self.updateState(.loaded(list: self.allData.filter { $0.id.lowercased().contains(value.lowercased()) },
+                                                      isOfflineData: isOfflineData))
                     }
                 }
                 .store(in: &cancellables)

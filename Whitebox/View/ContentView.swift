@@ -24,14 +24,22 @@ struct ContentView: View {
         case .loading:
             ProgressView()
             
-        case .loaded(let items):
+        case .loaded(let items, let isOfflineData):
             NavigationView {
-                // TODO: add indication for offline data
-                CryptoListView(items: items,
-                               onTapIsFavorite: viewModel.onTapIsFavorite(asset:),
-                               didSelectItem: { selectedItem = $0 } )
-                .listStyle(.insetGrouped)
-                .searchable(text: $viewModel.searchQuerry, prompt: "Search by asset id's")
+                VStack(spacing: 0.0) {
+                    if isOfflineData {
+                        Text("Internet connection is down, displaying offline data.")
+                            .foregroundColor(.red)
+                            .padding()
+                    }
+                    
+                    CryptoListView(items: items,
+                                   onTapIsFavorite: viewModel.onTapIsFavorite(asset:),
+                                   didSelectItem: { selectedItem = $0 } )
+                    .listStyle(.insetGrouped)
+                    .searchable(text: $viewModel.searchQuerry, prompt: "Search by asset id's")
+                    
+                }
                 .navigationTitle("Crypto list")
                 .toolbar {
                     ToolbarItem {

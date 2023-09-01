@@ -29,7 +29,7 @@ struct CryptoRepositoryImpl: CryptoRepository {
     
     
     // MARK: - impl
-    func getAssetList() -> AnyPublisher<[CryptoAsset], Error> {
+    func getAssetList() -> AnyPublisher<(list: [CryptoAsset], isOfflineData: Bool), Error> {
         
         Publishers.Zip(remoteDatasource.getAssetList(), localDatasource.getFavoritesAssets())
             .map { (all, favorites) in
@@ -45,13 +45,22 @@ struct CryptoRepositoryImpl: CryptoRepository {
             .flatMap { list in
                 localDatasource
                     .deleteAssetList()
-                    .flatMap { _ in localDatasource.saveAssetList(list: list) }
+                    .flatMap { _ in
+                        localDatasource
+                        .saveAssetList(list: list)
+                        .map { _ in (list: list, isOfflineData: false) }
+                    }
                     .eraseToAnyPublisher()
             }
             .catch { error in
                 switch error as? CustomErrors {
-                case .networkOffline: return localDatasource.getAssetList()
-                default: return .fail(with: error)
+                case .networkOffline:
+                    return localDatasource
+                        .getAssetList()
+                        .map { (list: $0, isOfflineData: true) }
+                        .eraseToAnyPublisher()
+                default:
+                    return .fail(with: error)
                 }
             }
             .eraseToAnyPublisher()
