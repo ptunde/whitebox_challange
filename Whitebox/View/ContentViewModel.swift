@@ -51,6 +51,12 @@ class ContentViewModel: ObservableObject {
     
     
     
+    func reloadData() {
+        self.loadCryptoList()
+    }
+    
+    
+    
     func onTapIsFavorite(asset: CryptoAsset) {
         if case .loaded(_, let isOfflineData) = state {
             repository

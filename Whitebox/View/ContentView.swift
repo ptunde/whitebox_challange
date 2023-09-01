@@ -51,7 +51,8 @@ struct ContentView: View {
             }
             
         case .error(let error):
-            Text(error)
+            CustomErrorView(message: error,
+                            onRetry: viewModel.reloadData)
         }
     }
 }
