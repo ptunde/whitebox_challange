@@ -21,7 +21,7 @@ class ContentViewModel: ObservableObject {
     
     
     // MARK: - private props
-    private var allData = [CryptoAsset]()
+    @Published private var allData = [CryptoAsset]()
     private var repository: CryptoRepository!
     private var cancellables = Set<AnyCancellable>()
     private var workScheduler: DispatchQueue!
@@ -52,13 +52,14 @@ class ContentViewModel: ObservableObject {
     
     
     func reloadData() {
+        cancellables.removeAll(keepingCapacity: true)
         self.loadCryptoList()
     }
     
     
     
     func onTapIsFavorite(asset: CryptoAsset) {
-        if case .loaded(_, let isOfflineData) = state {
+        if case .loaded(_, _) = state {
             repository
                 .updateAsset(asset: asset.copy(isFavorite: !asset.isFavorite))
                 .subscribe(on: workScheduler)
@@ -70,7 +71,6 @@ class ContentViewModel: ObservableObject {
                     if let index = weakself.allData.firstIndex(where: { $0.id == asset.id }) {
                         weakself.allData[index].isFavorite = value.isFavorite
                     }
-                    weakself.updateState(.loaded(list: weakself.allData, isOfflineData: isOfflineData))
                 }
                 .store(in: &cancellables)
         }
@@ -79,18 +79,7 @@ class ContentViewModel: ObservableObject {
     
     
     func onTapToggleFavorites() {
-        if case .loaded(_, let isOfflineData) = state {
-            
-            isDisplayingOnlyFavorites = !isDisplayingOnlyFavorites
-            
-            switch isDisplayingOnlyFavorites {
-            case true:
-                let custom = allData.filter { $0.isFavorite == true }
-                updateState(.loaded(list: custom, isOfflineData: isOfflineData))
-            case false:
-                updateState(.loaded(list: allData, isOfflineData: isOfflineData))
-            }
-        }
+        isDisplayingOnlyFavorites = !isDisplayingOnlyFavorites
     }
     
     
@@ -108,37 +97,58 @@ class ContentViewModel: ObservableObject {
                     self?.updateState(.error("unable_to_load_data".localized()))
                 }
             } receiveValue: { [weak self] value in
+                self?.subscribeToFilters(isOfflineData: value.isOfflineData)
                 self?.allData = value.list
-                self?.updateState(.loaded(list: value.list, isOfflineData: value.isOfflineData))
-                self?.subscribeToSearchText()
             }
             .store(in: &cancellables)
     }
     
     
     
-    private func subscribeToSearchText() {
-        if case .loaded(_, let isOfflineData) = state {
+    private func subscribeToFilters(isOfflineData: Bool) {
+        Publishers
+            .CombineLatest3(
+                $allData,
+                $isDisplayingOnlyFavorites,
+                $searchQuerry
+                    .debounce(for: .seconds(0.5), scheduler: workScheduler)
+                    .removeDuplicates())
             
-            $searchQuerry
-                .dropFirst(1)
-                .debounce(for: .seconds(0.5), scheduler: mainScheduler)
-                .removeDuplicates()
-                .subscribe(on: workScheduler)
-                .receive(on: mainScheduler)
-                .sink { value in
-                    switch value.isEmpty {
-                    case true: self.updateState(.loaded(list: self.allData, isOfflineData: isOfflineData))
-                    case false:
-                        let filtered = self.allData.filter {
-                            $0.id.lowercased().contains(value.lowercased()) || $0.name.lowercased().contains(value.lowercased())
-                        }
-                        
-                        self.updateState(.loaded(list: filtered, isOfflineData: isOfflineData))
-                    }
-                }
-                .store(in: &cancellables)
+            .map { data, favs, query in
+                self.updateList(data: data, showFavorites: favs, searchQuery: query)
+            }
+            .subscribe(on: workScheduler)
+            .receive(on: mainScheduler)
+            .sink { [weak self] list in
+                self?.updateState(.loaded(list: list, isOfflineData: isOfflineData))
+            }
+            .store(in: &cancellables)
+        
+    }
+    
+    
+    
+    private func updateList(data: [CryptoAsset], showFavorites: Bool, searchQuery: String) -> [CryptoAsset] {
+        
+        let filterByFav: [CryptoAsset]
+        
+        switch showFavorites {
+        case true:
+            filterByFav = data.filter { $0.isFavorite == true }
+        case false:
+            filterByFav = data
         }
+        
+        switch searchQuery.isEmpty {
+        case true:
+            return filterByFav
+        case false:
+            return filterByFav.filter {
+                $0.id.lowercased().contains(searchQuerry.lowercased()) ||
+                $0.name.lowercased().contains(searchQuerry.lowercased())
+            }
+        }
+        
     }
     
     

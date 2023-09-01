@@ -19,13 +19,11 @@ struct CryptoListView: View {
     
     // MARK: - body
     var body: some View {
-        List {
-            ForEach(items) { item in
-                CryptoListItemView(item: item,
-                                   toggleFavorite: { onTapIsFavorite(item) },
-                                   onSelect: { didSelectItem(item) })
-                .listRowInsets(EdgeInsets())
-            }
+        List(items) { item in
+            CryptoListItemView(item: item,
+                               toggleFavorite: { onTapIsFavorite(item) },
+                               onSelect: { didSelectItem(item) })
+            .listRowInsets(EdgeInsets())
         }
     }
 }
